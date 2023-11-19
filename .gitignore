@@ -490,3 +490,8 @@ dkms.conf
 *.exe
 *.out
 *.app
+
+# User defined
+# Visual Studio
+*.sln
+*.vcxproj*
