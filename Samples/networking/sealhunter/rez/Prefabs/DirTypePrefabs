@@ -1,0 +1,25 @@
+
+( world
+	( header (
+		( versioncode 1 )
+	) )
+	( polyhedronlist (
+	) )
+	( nodehierarchy 
+		( worldnode 
+			( type null )
+			( label "Container" ) 
+			( nodeid 1 ) 
+			( flags ( worldroot ) ) 
+			( properties
+				( propid  0 ) 
+			)
+		)
+	)
+	( globalproplist (
+		( proplist ( 
+		) )
+	 ) )
+	( navigatorposlist (
+	) )
+)

@@ -1,0 +1,880 @@
+Groups: 3
+	GroupName: Bang
+	FxInGroup: 3
+	Phase: 1000
+		FxName: DynaLight;
+		FxID: 16
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 1.000000
+		Repeat: 1
+		TrackID: 0
+		MinScale: 0.000000
+		MaxScale: 512.000000
+		Properties: 18
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: Flash
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: Flicker
+				Type: 1
+				INTEGER: 0
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: ForceLightWorld
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 0.192157 0.192157 0.466667 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 0.000000 0.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 32.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 32.000000 0.000000 0.000000
+		FxName: ParticleSystem;
+		FxID: 48
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.300000
+		Repeat: 1
+		TrackID: 1
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 45
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: Sprite
+				Type: 7
+				PATH: spr|FX\BLUEPUFF1.SPR
+			PropName: Texture
+				Type: 7
+				PATH: dtx|...
+			PropName: EmissionInterval
+				Type: 2
+				FLOAT: 0.100000
+			PropName: ParticlesPerEmission
+				Type: 1
+				INTEGER: 15
+			PropName: GravityAcceleration
+				Type: 2
+				FLOAT: -200.000000
+			PropName: AdditionalAcceleration
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: MinParticleLifeSpan
+				Type: 2
+				FLOAT: 0.500000
+			PropName: MaxParticleLifeSpan
+				Type: 2
+				FLOAT: 1.000000
+			PropName: MinRadius
+				Type: 2
+				FLOAT: 0.000000
+			PropName: MaxRadius
+				Type: 2
+				FLOAT: 1.000000
+			PropName: EmissionPlane
+				Type: 4
+				VECTOR: 0.000000 0.000000 1.000000
+			PropName: MinParticleVelocity
+				Type: 4
+				VECTOR: -64.000000 -64.000000 128.000000
+			PropName: MaxParticleVelocity
+				Type: 4
+				VECTOR: 64.000000 64.000000 256.000000
+			PropName: Type
+				Type: 3
+				COMBO: 1, Sphere, Point, Circle, Cone, Cylinder
+			PropName: PercentToBounce
+				Type: 2
+				FLOAT: 0.500000
+			PropName: FlipRenderingOrder
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: LightParticles
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: RotateParticles
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: MinAngularVelocity
+				Type: 2
+				FLOAT: -360.000000
+			PropName: MaxAngularVelocity
+				Type: 2
+				FLOAT: 360.000000
+			PropName: BlendMode
+				Type: 3
+				COMBO: 1, None, Additive, Multiply
+			PropName: MoveParticlesWithSystem
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: CollideModels
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: Friction
+				Type: 2
+				FLOAT: 0.000000
+			PropName: VelocityType
+				Type: 3
+				COMBO: 0, Random, FromCenter
+			PropName: InfiniteLife
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: SplatPercent
+				Type: 2
+				FLOAT: 0.000000
+			PropName: KillOnSplat
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: SplatEffect
+				Type: 0
+				STRING: 
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000
+		FxName: Sprite;
+		FxID: 58
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 1.000000
+		Repeat: 1
+		TrackID: 2
+		MinScale: 0.000000
+		MaxScale: 2.000000
+		Properties: 27
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: Flash
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: Sprite
+				Type: 7
+				PATH: spr|FX\BLUEPUFF1.SPR
+			PropName: Normal
+				Type: 4
+				VECTOR: 0.000000 0.000000 1.000000
+			PropName: Facing
+				Type: 3
+				COMBO: 0,CameraFacing,AlongNormal,ParentAlign
+			PropName: BlendMode
+				Type: 3
+				COMBO: 1, None, Additive, Multiply
+			PropName: DisableZ
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DisableLight
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: CastVisibleRay
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: ZBias
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.021488 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.133884 0.000000 0.000000 0.000000 1.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.991736 0.000000 0.000000 0.000000 1.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 0.000000 0.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 0.300000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 0.300000 0.000000 0.000000
+	GroupName: CanImpact
+	FxInGroup: 2
+	Phase: 500
+		FxName: ParticleSystem;
+		FxID: 0
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.101000
+		Repeat: 1
+		TrackID: 0
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 45
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Sprite
+				Type: 7
+				PATH: spr|...
+			PropName: Texture
+				Type: 7
+				PATH: dtx|FX\FLR_BLUE.DTX
+			PropName: EmissionInterval
+				Type: 2
+				FLOAT: 0.010000
+			PropName: ParticlesPerEmission
+				Type: 1
+				INTEGER: 10
+			PropName: GravityAcceleration
+				Type: 2
+				FLOAT: 0.000000
+			PropName: AdditionalAcceleration
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: MinParticleLifeSpan
+				Type: 2
+				FLOAT: 0.100000
+			PropName: MaxParticleLifeSpan
+				Type: 2
+				FLOAT: 0.250000
+			PropName: MinRadius
+				Type: 2
+				FLOAT: 0.000000
+			PropName: MaxRadius
+				Type: 2
+				FLOAT: 10.000000
+			PropName: EmissionPlane
+				Type: 4
+				VECTOR: 0.000000 1.000000 0.000000
+			PropName: MinParticleVelocity
+				Type: 4
+				VECTOR: 150.000000 1.000000 0.000000
+			PropName: MaxParticleVelocity
+				Type: 4
+				VECTOR: 150.000000 1.000000 0.000000
+			PropName: Type
+				Type: 3
+				COMBO: 0, Sphere, Point, Circle, Cone, Cylinder
+			PropName: PercentToBounce
+				Type: 2
+				FLOAT: 0.000000
+			PropName: FlipRenderingOrder
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: LightParticles
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: RotateParticles
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: MinAngularVelocity
+				Type: 2
+				FLOAT: -60.000000
+			PropName: MaxAngularVelocity
+				Type: 2
+				FLOAT: 60.000000
+			PropName: BlendMode
+				Type: 3
+				COMBO: 1, None, Additive, Multiply
+			PropName: MoveParticlesWithSystem
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: CollideModels
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: Friction
+				Type: 2
+				FLOAT: 0.000000
+			PropName: VelocityType
+				Type: 3
+				COMBO: 1, Random, FromCenter
+			PropName: InfiniteLife
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: SplatPercent
+				Type: 2
+				FLOAT: 0.000000
+			PropName: KillOnSplat
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: SplatEffect
+				Type: 0
+				STRING: 
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000
+		FxName: PlaySound;
+		FxID: 1
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.500000
+		Repeat: 1
+		TrackID: 1
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 26
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Sound
+				Type: 7
+				PATH: wav|SND\BOARDS_HITCAR_02.WAV
+			PropName: Loop
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PlayLocal
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: InnerRadius
+				Type: 2
+				FLOAT: 100.000000
+			PropName: OuterRadius
+				Type: 2
+				FLOAT: 500.000000
+			PropName: Volume
+				Type: 1
+				INTEGER: 100
+			PropName: Priority
+				Type: 1
+				INTEGER: 0
+			PropName: UseMarkers
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PitchShift
+				Type: 2
+				FLOAT: 1.000000
+			PropName: MultiPlaySound
+				Type: 7
+				PATH: wav|SND\BOARDS_HITCAR_02.WAV
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000
+	GroupName: PlayerImpact
+	FxInGroup: 3
+	Phase: 500
+		FxName: ParticleSystem;
+		FxID: 0
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.101000
+		Repeat: 1
+		TrackID: 0
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 45
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Sprite
+				Type: 7
+				PATH: spr|...
+			PropName: Texture
+				Type: 7
+				PATH: dtx|FX\REDFLASH.DTX
+			PropName: EmissionInterval
+				Type: 2
+				FLOAT: 0.010000
+			PropName: ParticlesPerEmission
+				Type: 1
+				INTEGER: 10
+			PropName: GravityAcceleration
+				Type: 2
+				FLOAT: 0.000000
+			PropName: AdditionalAcceleration
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: MinParticleLifeSpan
+				Type: 2
+				FLOAT: 0.100000
+			PropName: MaxParticleLifeSpan
+				Type: 2
+				FLOAT: 0.250000
+			PropName: MinRadius
+				Type: 2
+				FLOAT: 0.000000
+			PropName: MaxRadius
+				Type: 2
+				FLOAT: 10.000000
+			PropName: EmissionPlane
+				Type: 4
+				VECTOR: 0.000000 1.000000 0.000000
+			PropName: MinParticleVelocity
+				Type: 4
+				VECTOR: 150.000000 1.000000 0.000000
+			PropName: MaxParticleVelocity
+				Type: 4
+				VECTOR: 150.000000 1.000000 0.000000
+			PropName: Type
+				Type: 3
+				COMBO: 0, Sphere, Point, Circle, Cone, Cylinder
+			PropName: PercentToBounce
+				Type: 2
+				FLOAT: 0.000000
+			PropName: FlipRenderingOrder
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: LightParticles
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: RotateParticles
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: MinAngularVelocity
+				Type: 2
+				FLOAT: -60.000000
+			PropName: MaxAngularVelocity
+				Type: 2
+				FLOAT: 60.000000
+			PropName: BlendMode
+				Type: 3
+				COMBO: 1, None, Additive, Multiply
+			PropName: MoveParticlesWithSystem
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: CollideModels
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: Friction
+				Type: 2
+				FLOAT: 0.000000
+			PropName: VelocityType
+				Type: 3
+				COMBO: 1, Random, FromCenter
+			PropName: InfiniteLife
+				Type: 3
+				COMBO: 0, No, Yes
+			PropName: SplatPercent
+				Type: 2
+				FLOAT: 0.000000
+			PropName: KillOnSplat
+				Type: 3
+				COMBO: 1, No, Yes
+			PropName: SplatEffect
+				Type: 0
+				STRING: 
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000
+		FxName: PlaySound;
+		FxID: 1
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.500000
+		Repeat: 1
+		TrackID: 1
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 26
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Sound
+				Type: 7
+				PATH: wav|SND\BOARDS_HITCAR_02.WAV
+			PropName: Loop
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PlayLocal
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: InnerRadius
+				Type: 2
+				FLOAT: 100.000000
+			PropName: OuterRadius
+				Type: 2
+				FLOAT: 500.000000
+			PropName: Volume
+				Type: 1
+				INTEGER: 100
+			PropName: Priority
+				Type: 1
+				INTEGER: 0
+			PropName: UseMarkers
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PitchShift
+				Type: 2
+				FLOAT: 1.000000
+			PropName: MultiPlaySound
+				Type: 7
+				PATH: wav|SND\BOARDS_HITCAR_02.WAV
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000
+		FxName: PlaySound;
+		FxID: 2
+		Linked: 0
+		LinkID: 0
+		LinkNode: 
+		StartTime: 0.000000
+		EndTime: 0.500000
+		Repeat: 1
+		TrackID: 2
+		MinScale: 0.000000
+		MaxScale: 10.000000
+		Properties: 26
+			PropName: UpdatePos
+				Type: 3
+				COMBO: 0,Fixed,Follow,PlayerView,NodeAttach,SocketAttach,PV_NodeAttach,PV_SocketAttach
+			PropName: AttachName
+				Type: 0
+				STRING: 
+			PropName: Offset
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: RotateAdd
+				Type: 4
+				VECTOR: 0.000000 0.000000 0.000000
+			PropName: DisableAtDist
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: MenuLayer
+				Type: 1
+				INTEGER: 0
+			PropName: MaxStartOffset
+				Type: 2
+				FLOAT: 0.000000
+			PropName: RandomizeStartOffset
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: StartOffsetInterval
+				Type: 2
+				FLOAT: 0.000000
+			PropName: SmoothShutDown
+				Type: 3
+				COMBO: 1,No,Yes
+			PropName: DetailLevel
+				Type: 3
+				COMBO: 0,All,High,Medium,Low,Medium+High,Low+Medium,Low+High
+			PropName: IsGore
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: Sound
+				Type: 7
+				PATH: wav|SND\DEATH6.WAV
+			PropName: Loop
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PlayLocal
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: InnerRadius
+				Type: 2
+				FLOAT: 100.000000
+			PropName: OuterRadius
+				Type: 2
+				FLOAT: 500.000000
+			PropName: Volume
+				Type: 1
+				INTEGER: 100
+			PropName: Priority
+				Type: 1
+				INTEGER: 0
+			PropName: UseMarkers
+				Type: 3
+				COMBO: 0,No,Yes
+			PropName: PitchShift
+				Type: 2
+				FLOAT: 1.000000
+			PropName: MultiPlaySound
+				Type: 7
+				PATH: wav|SND\DEATH6.WAV
+			PropName: Ck
+				Type: 6
+				CLRKEY: 0.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Ck
+				Type: 6
+				CLRKEY: 1.000000 1.000000 1.000000 1.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 0.000000 1.000000 0.000000 0.000000
+			PropName: Sk
+				Type: 5
+				VECTOR4: 1.000000 1.000000 0.000000 0.000000

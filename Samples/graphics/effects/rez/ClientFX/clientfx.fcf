@@ -1,0 +1,48 @@
+Siblings: 1
+	Name: [All Fx]
+		Image: 0
+		SelectedImage: 1
+		HasCildren: 1
+		State: 1
+Siblings: 4
+	Name: WarpSprite
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 0
+	Name: WarpSystem
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 0
+	Name: Fire1
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 0
+	Name: Fire1_1
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 2
+Count: 4
+	FXName: WarpSprite
+		Left: 0
+		Top: 0
+		Right: 700
+		Bottom: 600
+	FXName: WarpSystem
+		Left: 100
+		Top: 20
+		Right: 800
+		Bottom: 620
+	FXName: Fire1
+		Left: 253
+		Top: 53
+		Right: 953
+		Bottom: 653
+	FXName: Fire1_1
+		Left: 0
+		Top: 0
+		Right: 700
+		Bottom: 600

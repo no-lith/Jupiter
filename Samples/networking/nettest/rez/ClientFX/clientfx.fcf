@@ -1,0 +1,28 @@
+Siblings: 1
+	Name: [All Fx]
+		Image: 0
+		SelectedImage: 1
+		HasCildren: 1
+		State: 1
+Siblings: 3
+	Name: Bang
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 0
+	Name: CanImpact
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 0
+	Name: PlayerImpact
+		Image: 2
+		SelectedImage: 2
+		HasCildren: 0
+		State: 2
+Count: 1
+	FXName: PlayerImpact
+		Left: 0
+		Top: 0
+		Right: 700
+		Bottom: 600

@@ -1,0 +1,31 @@
+--include "audio/music"
+--include "audio/sounds"
+
+--include "base/mpflycam"
+--include "base/samplebase"
+--include "base/simplephys"
+
+--include "debugging/stacktrace"
+
+--include "graphics/bump"
+--include "graphics/clientfx"
+--include "graphics/drawprim"
+--include "graphics/effects"
+--include "graphics/fonts"
+--include "graphics/guimgr"
+--include "graphics/renderdemo"
+--include "graphics/shaders"
+--include "graphics/specialeffects"
+--include "graphics/video"
+--
+--include "models/animations"
+--include "models/animations2"
+--include "models/attachments"
+--include "models/obb"
+--
+--include "networking/nettest"
+include "networking/sealhunter"
+--
+--include "objects/doors"
+--include "objects/pickups"
+--include "objects/projectiles"
