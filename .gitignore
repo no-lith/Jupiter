@@ -495,3 +495,4 @@ dkms.conf
 # Visual Studio
 *.sln
 *.vcxproj*
+*.recipe
