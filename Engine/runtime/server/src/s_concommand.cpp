@@ -233,7 +233,7 @@ void con_SpawnObject(int argc, char **argv)
     LPBASECLASS pRet;
     ObjectCreateStruct theStruct;
     Client *pClient;
-    char *pSpawnArgs;
+    const char *pSpawnArgs;
 
     if (argc == 0 || !g_pServerMgr || !ilt_server ||
         g_pServerMgr->m_Clients.m_nElements == 0)

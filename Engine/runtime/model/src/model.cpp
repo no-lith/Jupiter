@@ -24,7 +24,7 @@
 // ------------------------------------------------------------------------
 
 // Used so we can track if the filename is allocated or not.
-static char *g_pNoModelFilename = "no-filename";
+static const char *g_pNoModelFilename = "no-filename";
 float g_CV_DefaultDrawIndexedDist = 500.0f;
 
 
@@ -1045,7 +1045,7 @@ ChildInfo* Model::AddChildModel(Model *pChild,
 		if(!VerifyChildModelTree(pChild, pErrNode))
 		{
 			LTSNPrintF(pErrStr, nErrStrLen, "Node trees differ at node %s.", pErrNode->GetName());
-			return false;
+			return nullptr;
 		}
 	}
 

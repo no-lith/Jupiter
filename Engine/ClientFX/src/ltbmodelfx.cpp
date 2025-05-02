@@ -505,15 +505,16 @@ bool CLTBModelFX::Update(float tmFrameTime)
 		m_rRot.Rotate( vF, MATH_DEGREES_TO_RADIANS( GetProps()->m_vRotAdd.z * tmFrame ));
 		
 		rRotation = rRotation * m_rRot;
+		rRotation = rRotation * m_rNormalRot;
 		
-		m_pLTClient->SetObjectRotation( m_hObject, &(rRotation * m_rNormalRot));
+		m_pLTClient->SetObjectRotation( m_hObject, &rRotation);
 	}
 	else if( GetProps()->m_nFacing == FACE_CAMERAFACING )
 	{
 		LTRotation rCamRot;
-
 		m_pLTClient->GetObjectRotation( m_hCamera, &rCamRot );
-		m_pLTClient->SetObjectRotation( m_hObject, &(rCamRot * m_rNormalRot) );
+		rCamRot = rCamRot * m_rNormalRot;
+		m_pLTClient->SetObjectRotation( m_hObject, &rCamRot );
 	}
 
 	// Success !!

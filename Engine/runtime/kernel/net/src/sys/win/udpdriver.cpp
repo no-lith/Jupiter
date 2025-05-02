@@ -1503,7 +1503,7 @@ bool CUDPConn::IsFlowControlBlocked(uint32 nPacketSize) const
 // ----------------------------------------------------------------- //
 
 // Returns a string representing the last TCP/IP error.
-char* udp_GetLastError()
+const char* udp_GetLastError()
 {
 	int lastError, i;
 

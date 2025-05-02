@@ -304,7 +304,13 @@ inline bool i_OrientedBoundingBoxTest(const ModelOBB &mobb,
 	// Setup our OBB's translated position
 	LTMatrix obb_mat;
 	obb_mat.Identity();
-	obb_mat.SetBasisVectors( &tf.m_Rot.Right(), &tf.m_Rot.Up(), &tf.m_Rot.Forward() );
+
+    const LTVector
+        vRight = tf.m_Rot.Right(),
+        vUp = tf.m_Rot.Up(),
+        vForward = tf.m_Rot.Forward();
+
+	obb_mat.SetBasisVectors( &vRight, &vUp, &vForward );
 	obb_mat.SetTranslation( tf.m_Pos );
 	obb_mat.Apply(vObbPos);  
 
@@ -425,7 +431,13 @@ static bool i_TestModelOBBS(ModelInstance *pObj)
         LTMatrix obb_mat;
         LTVector vTPos(obb->m_Pos);
         obb_mat.Identity();
-        obb_mat.SetBasisVectors( &tf.m_Rot.Right(), &tf.m_Rot.Up(), &tf.m_Rot.Forward() );
+
+        const LTVector
+            vRight = tf.m_Rot.Right(),
+            vUp = tf.m_Rot.Up(),
+            vForward = tf.m_Rot.Forward();
+
+        obb_mat.SetBasisVectors( &vRight, &vUp, &vForward );
         obb_mat.SetTranslation( tf.m_Pos );
         obb_mat.Apply(vTPos);
 

@@ -158,8 +158,8 @@
 	{
 		if (!m_pHead)
 		{		
-			m_pHead = new CFastListNode;
-			if (!m_pRoot) return false;
+			m_pHead = new CFastListNode<T>;
+			if (!m_pHead) return false;
 
 			m_pHead->m_Data = data;
 
@@ -167,7 +167,7 @@
 		}
 		else
 		{
-			CFastListNode *pNewNode = new CFastListNode;
+			CFastListNode *pNewNode = new CFastListNode<T>;
 			if (!pNewNode) return false;
 			
 			m_pHead->m_pPrev  = pNewNode;

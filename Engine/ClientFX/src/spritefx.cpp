@@ -376,8 +376,9 @@ bool CSpriteFX::Update(float tmFrameTime)
 		m_rRot.Rotate( vF, MATH_DEGREES_TO_RADIANS(GetProps()->m_vRotAdd.z * tmFrame) );
 		
 		rRotation = rRotation * m_rRot;
+		rRotation = rRotation * m_rNormalRot;
 		
-		m_pLTClient->SetObjectRotation( m_hObject, &(rRotation * m_rNormalRot) );
+		m_pLTClient->SetObjectRotation( m_hObject, &rRotation );
 	}
 
 	// Success !!

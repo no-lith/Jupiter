@@ -18,7 +18,7 @@
 
 struct ISKey
 {
-	char *m_pName;
+	const char *m_pName;
 	int m_VKCode, m_DIKCode;
 	float m_Scale;
 };

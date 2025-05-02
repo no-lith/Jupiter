@@ -259,7 +259,7 @@ void cc_HandleCommand3(ConsoleState *pState, const char *pCommand, uint32 flags,
 					}
 					else
 					{
-						parse.m_Args[1] = "1";
+						parse.m_Args[1] = (char*)"1";
 					}
 				}
 

@@ -1,7 +1,7 @@
 project "LithTech"
 	kind "WindowedApp"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++20"
 	staticruntime "on"
 
 	characterset ("MBCS")
@@ -563,7 +563,7 @@ project "LithTech"
 		"LIB-STDLith"
 	}
 
-	-- we need to disable PCH for some files
+	-- We need to disable PCH for some files
 
 	-- sdk
 	filter { "files:**/sdk/inc/lterror.cpp" }

@@ -156,7 +156,7 @@ bool CWin32SoundFactory::FillSoundSystems( char* pcSoundSysNames, uint uiMaxStri
 	if( uiMaxStringLen < 2 || pcSoundSysNames == NULL )
 		return false;
 
-	static char* pcSoundSysNameWildcard = SOUND_DRIVER_DLL;
+	static const char* pcSoundSysNameWildcard = SOUND_DRIVER_DLL;
 
 	WIN32_FIND_DATA tFileFindData;
 	memset( &tFileFindData, 0, sizeof( tFileFindData ) );

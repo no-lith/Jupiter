@@ -45,7 +45,7 @@ FILE* g_pLogFile = NULL;
 	}								\
 
 
-static char* ConvertDSErrorToString( HRESULT hr )
+static const char* ConvertDSErrorToString( HRESULT hr )
 {
 	REPORT_DS_ERROR( hr, DS_OK )
 	REPORT_DS_ERROR( hr, DSERR_ALLOCATED )
@@ -1562,14 +1562,14 @@ BOOL CSample::Lock( DWORD dwStartOffset, DWORD dwLockAmount, void** ppChunk1, DW
 			if( hResult = m_pDSBuffer->Lock( dwStartOffset, dwLockAmount, ppChunk1, pdwChunkSize1, ppChunk2,
 				pdwChunkSize2, dwFlags ) != DS_OK )
 			{
-				char* pcDSError = ConvertDSErrorToString( hResult );
+				const char* pcDSError = ConvertDSErrorToString( hResult );
 				return FALSE;
 			}
 
 			return TRUE;
         }
 
-		char* pcDSError = ConvertDSErrorToString( hResult );
+		const char* pcDSError = ConvertDSErrorToString( hResult );
         return FALSE;
     }
 
@@ -3031,7 +3031,7 @@ void* CDx8SoundSys::MemAllocLock( U32 uiSize )
 	return p;
 }
 
-char* CDx8SoundSys::LastError( void )
+const char* CDx8SoundSys::LastError( void )
 {
 	return ConvertDSErrorToString( m_hResult );
 }
@@ -3152,7 +3152,7 @@ S32	CDx8SoundSys::GetDigitalMasterVolume( LHDIGDRIVER hDig )
 
 	long lDSMasterVolume = 0;
 	m_hResult = pDSPrimaryBuffer->GetVolume( &lDSMasterVolume );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siMasterVolume;
 	CONVERT_LOG_VOL_TO_LIN_VOL( lDSMasterVolume, siMasterVolume );
@@ -3201,7 +3201,7 @@ bool CDx8SoundSys::SetEAX20Filter( bool bEnable, LTSOUNDFILTERDATA* pFilterData 
 		EAXLISTENERPROPERTIES props;
 		props.lRoom = -10000;
 		m_hResult = m_pKSPropertySet->Set(DSPROPSETID_EAX_ListenerProperties, DSPROPERTY_EAXLISTENER_ROOM, NULL, 0, (void*)&props.lRoom, sizeof(FLOAT));
-		char* m_pcLastError = LastError( );
+		const char* m_pcLastError = LastError( );
 		if ( m_hResult != DS_OK )
 		{
 			return false;
@@ -3236,7 +3236,7 @@ bool CDx8SoundSys::SetEAX20Filter( bool bEnable, LTSOUNDFILTERDATA* pFilterData 
 		// Get the current settings...
 		unsigned long uPropSize;
 		m_hResult = m_pKSPropertySet->Get(DSPROPSETID_EAX_ListenerProperties, DSPROPERTY_EAXLISTENER_ALLPARAMETERS, NULL, 0, (void*)&props, sizeof(EAXLISTENERPROPERTIES), &uPropSize);
-		char* m_pcLastError = LastError( );
+		const char* m_pcLastError = LastError( );
 		if ( m_hResult != DS_OK )
 		{
 			return false;
@@ -3339,7 +3339,7 @@ bool CDx8SoundSys::SetEAX20BufferSettings( LH3DSAMPLE h3DSample, LTSOUNDFILTERDA
 
 	LPKSPROPERTYSET pKSPropertySet = NULL;
   	m_hResult = pSample->m_pDSBuffer->QueryInterface(IID_IKsPropertySet, (LPVOID *)&pKSPropertySet);
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 	if ( m_hResult != DS_OK )
 		return false;
 
@@ -3348,7 +3348,7 @@ bool CDx8SoundSys::SetEAX20BufferSettings( LH3DSAMPLE h3DSample, LTSOUNDFILTERDA
 		// set the direct attenuation, this is implemented when we actually allocate a sound.
 		soundProps.lDirect = pLTReverb->lDirect;
 		m_hResult = pKSPropertySet->Set(DSPROPSETID_EAX_BufferProperties, DSPROPERTY_EAXBUFFER_DIRECT, NULL, 0, (void*)&soundProps.lDirect, sizeof(unsigned long));
-		char* m_pcLastError = LastError( );
+		const char* m_pcLastError = LastError( );
 		if ( m_hResult != DS_OK )
 			return false;
 
@@ -3407,7 +3407,7 @@ void CDx8SoundSys::Set3DProviderPreference( LHPROVIDER hLib, char* sName, void* 
 {
 }
 
-void CDx8SoundSys::Get3DProviderAttribute( LHPROVIDER hLib, char* sName, void* pVal )
+void CDx8SoundSys::Get3DProviderAttribute( LHPROVIDER hLib, const char* sName, void* pVal )
 {
 	int *pnVal = (int*) pVal;
     if (strcmp(sName, "Max samples") == 0)
@@ -3426,7 +3426,7 @@ void CDx8SoundSys::Get3DProviderAttribute( LHPROVIDER hLib, char* sName, void* p
 }
 
 
-S32	CDx8SoundSys::Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, char** psName)
+S32	CDx8SoundSys::Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, const char** psName)
 {
 	int nCur = *phNext;
 	phNext[0] += 1;
@@ -3528,7 +3528,8 @@ void CDx8SoundSys::Set3DPosition( LH3DPOBJECT hObj, float fX, float fY, float fZ
 		return;
 
 	I3DObject* p3DObject = ( I3DObject* )hObj;
-	p3DObject->SetPosition( LTVector( fX, fY, fZ ) );
+	LTVector vPos = {fX, fY, fZ};
+	p3DObject->SetPosition( vPos );
 }
 
 void CDx8SoundSys::Set3DVelocityVector( LH3DPOBJECT hObj, float fDX_per_s, float fDY_per_s, float fDZ_per_s )
@@ -3537,7 +3538,8 @@ void CDx8SoundSys::Set3DVelocityVector( LH3DPOBJECT hObj, float fDX_per_s, float
 		return;
 
 	I3DObject* p3DObject = ( I3DObject* )hObj;
-	p3DObject->SetVelocity( LTVector( fDX_per_s, fDY_per_s, fDZ_per_s ) );
+	LTVector vVel = {fDX_per_s, fDY_per_s, fDZ_per_s};
+	p3DObject->SetVelocity( vVel );
 }
 
 void CDx8SoundSys::Set3DOrientation( LH3DPOBJECT hObj, float fX_face, float fY_face, float fZ_face, float fX_up, float fY_up, float fZ_up )
@@ -3546,7 +3548,9 @@ void CDx8SoundSys::Set3DOrientation( LH3DPOBJECT hObj, float fX_face, float fY_f
 		return;
 
 	I3DObject* p3DObject = ( I3DObject* )hObj;
-	p3DObject->SetOrientation( LTVector( fX_up, fY_up, fZ_up ), LTVector( fX_face, fY_face, fZ_face ) );
+	LTVector vUp = {fX_up, fY_up, fZ_up};
+	LTVector vFace = {fX_face, fY_face, fZ_face};
+	p3DObject->SetOrientation( vUp, vFace );
 }
 
 void CDx8SoundSys::Set3DUserData( LH3DPOBJECT hObj, U32 uiIndex, S32 siValue )
@@ -3683,7 +3687,7 @@ void CDx8SoundSys::Stop3DSample( LH3DSAMPLE hS )
 
 	// stop any sample notification
 	SetSampleNotify( &p3DSample->m_sample, false );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // start playback at beginning position
@@ -3698,7 +3702,7 @@ void CDx8SoundSys::Start3DSample( LH3DSAMPLE hS )
 	m_hResult = p3DSample->m_sample.Stop( true );
 	m_hResult = p3DSample->m_sample.Play( );
 	p3DSample->m_status = LS_PLAYING;
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // continue playback from current position
@@ -3712,7 +3716,7 @@ void CDx8SoundSys::Resume3DSample( LH3DSAMPLE hS )
 
 	p3DSample->m_sample.Play( );
 	p3DSample->m_status = LS_PLAYING;
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // terminate playback and reset position
@@ -3731,7 +3735,7 @@ void CDx8SoundSys::End3DSample( LH3DSAMPLE hS )
 	p3DSample->m_status = LS_DONE;
 
 	SetSampleNotify( &p3DSample->m_sample, false );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 
@@ -3966,7 +3970,7 @@ S32	CDx8SoundSys::Get3DSampleVolume( LH3DSAMPLE hS )
 
 	long lDSVolume = 0;
 	m_hResult = pSample->m_pDSBuffer->GetVolume( &lDSVolume );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siVolume;
 	CONVERT_LOG_VOL_TO_LIN_VOL( lDSVolume, siVolume );
@@ -4222,7 +4226,7 @@ void CDx8SoundSys::StopSample( LHSAMPLE hS )
 	m_hResult = pSample->Stop( true );
 
 	SetSampleNotify( pSample, false );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // start playback at beginning position
@@ -4238,7 +4242,7 @@ void CDx8SoundSys::StartSample( LHSAMPLE hS )
 
 	m_hResult = pSample->Stop( true );
 	m_hResult = pSample->Play( );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // continue playback from current position
@@ -4253,7 +4257,7 @@ void CDx8SoundSys::ResumeSample( LHSAMPLE hS )
 	pSample->Restore( );
 
 	m_hResult = pSample->Play( );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 // terminate playback and reset position
@@ -4269,7 +4273,7 @@ void CDx8SoundSys::EndSample( LHSAMPLE hS )
 	m_hResult = pSample->Stop( true );
 
 	SetSampleNotify( pSample, false );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 void CDx8SoundSys::SetSampleVolume( LHSAMPLE hS, S32 siVolume )
@@ -4307,7 +4311,7 @@ S32	CDx8SoundSys::GetSampleVolume( LHSAMPLE hS )
 
 	long lDSVolume = 0;
 	m_hResult = pSample->m_pDSBuffer->GetVolume( &lDSVolume );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siVolume;
 	CONVERT_LOG_VOL_TO_LIN_VOL( lDSVolume, siVolume );
@@ -4390,7 +4394,7 @@ void CDx8SoundSys::SetSamplePan( LHSAMPLE hS, S32 siPan )
 	long lDSPan = ConvertLinPanToLogPan( siPan );
 
 	m_hResult = pSample->m_pDSBuffer->SetPan( lDSPan );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 S32	CDx8SoundSys::GetSamplePan( LHSAMPLE hS )
@@ -4405,7 +4409,7 @@ S32	CDx8SoundSys::GetSamplePan( LHSAMPLE hS )
 
 	long lDSPan = 0;
 	m_hResult = pSample->m_pDSBuffer->GetPan( &lDSPan );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siPan = ConvertLogPanToLinPan( lDSPan );
 
@@ -4692,7 +4696,7 @@ void CDx8SoundSys::SetSampleMsPosition( LHSAMPLE hS, S32 siMilliseconds )
 	uint32 uiByteOffset = MulDiv( pSample->m_waveFormat.nAvgBytesPerSec, siMilliseconds, 1000 );
 	uiByteOffset -= uiByteOffset % pSample->m_waveFormat.nBlockAlign;
 	m_hResult = pSample->SetCurrentPosition( uiByteOffset );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 S32	CDx8SoundSys::GetSampleUserData( LHSAMPLE hS, U32 uiIndex )
@@ -4872,7 +4876,7 @@ void CDx8SoundSys::SetStreamMsPosition( LHSTREAM hStream, S32 siMilliseconds )
 		pStream->m_pWaveFile->GetDuration( ));
 	uiByteOffset -= uiByteOffset % pStream->m_waveFormat.nBlockAlign;
 	m_hResult = pStream->SetCurrentPosition( uiByteOffset );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 void CDx8SoundSys::SetStreamUserData( LHSTREAM hS, U32 uiIndex, S32 siValue)
@@ -5060,7 +5064,7 @@ void CDx8SoundSys::SetStreamPan( LHSTREAM hStream, sint32 siPan )
 	long lDSPan = ConvertLinPanToLogPan( siPan );
 
 	m_hResult = pStream->m_pDSBuffer->SetPan( lDSPan );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 }
 
 sint32 CDx8SoundSys::GetStreamVolume( LHSTREAM hStream )
@@ -5074,7 +5078,7 @@ sint32 CDx8SoundSys::GetStreamVolume( LHSTREAM hStream )
 
 	long lDSVolume = 0;
 	m_hResult = pStream->m_pDSBuffer->GetVolume( &lDSVolume );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siVolume;
 	CONVERT_LOG_VOL_TO_LIN_VOL( lDSVolume, siVolume );
@@ -5093,7 +5097,7 @@ sint32 CDx8SoundSys::GetStreamPan( LHSTREAM hStream )
 
 	long lDSPan = 0;
 	m_hResult = pStream->m_pDSBuffer->GetPan( &lDSPan );
-	char* m_pcLastError = LastError( );
+	const char* m_pcLastError = LastError( );
 
 	S32 siPan = ConvertLogPanToLinPan( lDSPan );
 
@@ -5371,7 +5375,7 @@ S32	CDx8SoundSys::DecompressADPCM( LTSOUNDINFO* pInfo, void** ppOutData, U32* pu
 */
 }
 
-S32	CDx8SoundSys::DecompressASI( void* pInData, U32 uiInSize, char* sFilename_ext, void** ppWav, U32* puiWavSize, LTLENGTHYCB fnCallback )
+S32	CDx8SoundSys::DecompressASI( void* pInData, U32 uiInSize, const char* sFilename_ext, void** ppWav, U32* puiWavSize, LTLENGTHYCB fnCallback )
 {
 	bool bSuccess = false;
 
@@ -5566,15 +5570,15 @@ uint32 CDx8SoundSys::GetThreadedSoundTicks( )
 //	DONE...
 
 CDx8SoundSys CDx8SoundSys::m_Dx8SoundSys;
-char* CDx8SoundSys::m_pcDx8SoundSysDesc = "DirectSound ( DirectX 8 )";
+const char* CDx8SoundSys::m_pcDx8SoundSysDesc = "DirectSound ( DirectX 8 )";
 
 extern "C"
 {
-	__declspec( dllexport ) char*			SoundSysDesc( );
+	__declspec( dllexport ) const char*		SoundSysDesc( );
 	__declspec( dllexport ) ILTSoundSys*	SoundSysMake( );
 }
 
-char* SoundSysDesc( )
+const char* SoundSysDesc( )
 {
 	return CDx8SoundSys::m_pcDx8SoundSysDesc;
 }

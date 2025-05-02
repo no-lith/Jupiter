@@ -294,7 +294,7 @@
 
 	template <class T> inline bool CLinkList<T>::InsertBefore(CLinkListNode<T> *pNode, T data)
 	{
-		CLinkListNode *pNewNode = new CLinkListNode;
+		CLinkListNode *pNewNode = new CLinkListNode<T>;
 		if (!pNewNode) return false;
 
 		pNewNode->m_pNext = pNode;

@@ -85,7 +85,11 @@
 
 		LTMatrix mTran, mRot, mFull;
 		
-		Mat_SetBasisVectors(&mRot, &orient.Right(), &orient.Up(), &orient.Forward());
+		vRight = orient.Right();
+		vUp = orient.Up();
+		vForward = orient.Forward();
+
+		Mat_SetBasisVectors(&mRot, &vRight, &vUp, &vForward);
 		MatTranspose3x3(&mRot);
 
 		Mat_Identity(&mTran);

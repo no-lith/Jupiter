@@ -23,6 +23,8 @@
 #include "ltbasetypes.h"
 #endif
 
+#include <de_world.h>
+
 
 
 // Defines....
@@ -255,7 +257,7 @@ T* g_IntersectRay( T *pRoot, TVector3<F> &pt, TVector3<F> &dir, F &t, TVector3<F
 		}
 										  
 		// Test the node's polygon.
-		if( dirDot < ZERO )
+		if( dirDot < F{} )
 		{
 			VEC_ADD(vTemp, pt, dir);
 			dot2 = DIST_TO_PLANE(vTemp, *pRoot->m_pPlane);
@@ -275,7 +277,7 @@ T* g_IntersectRay( T *pRoot, TVector3<F> &pt, TVector3<F> &dir, F &t, TVector3<F
 		
 		// Back side.
 		if( !(pRoot->m_Sides[BackSide]->m_Flags & (NF_IN|NF_OUT)) )
-			if( dirDot <= ZERO )
+			if( dirDot <= F{} )
 				if( (pRet = g_IntersectRay(pRoot->m_Sides[BackSide], pt, dir, t, intersection, flags)) )
 					return pRet;
 	}
@@ -288,7 +290,7 @@ T* g_IntersectRay( T *pRoot, TVector3<F> &pt, TVector3<F> &dir, F &t, TVector3<F
 
 		// Front side.
 		if( !(pRoot->m_Sides[FrontSide]->m_Flags & (NF_IN|NF_OUT)) )
-			if( dirDot >= ZERO )
+			if( dirDot >= F{} )
 				if( (pRet = g_IntersectRay(pRoot->m_Sides[FrontSide], pt, dir, t, intersection, flags)) )
 					return pRet;
 	}
@@ -308,7 +310,7 @@ template<class M, class F>
 int g_LocatePointInTree( M *pWorld, TVector3<F> &point, int iRoot )
 {
 	F			dot;
-	CNode		*pRoot;
+	class CNode	*pRoot;
 	int			side;
 	
 	while(1)

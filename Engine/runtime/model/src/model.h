@@ -1038,7 +1038,7 @@ private:
 
 	// Not always set.. the engine uses this to determine if it has already
 	// been loaded.  Use Get/SetFilename.
-	char			*m_pFilename;
+	const char		*m_pFilename;
 
 
 public:

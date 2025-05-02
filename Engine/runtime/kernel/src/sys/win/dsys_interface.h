@@ -51,7 +51,7 @@
         
         HINSTANCE       m_hInstance;
         
-        char            *m_WndClassName;
+        const char      *m_WndClassName;
         const char      *m_WndCaption;
 
         BOOL            m_bInitializingRenderer;

@@ -340,24 +340,24 @@ public:
 	//each component will be set to the lower of the current value or the passed in value
 	void Min(const LTVector2& v)
 	{
-		Init(LTMIN(x, v.x), LTMIN(y, v.y));
+		Init(LTMIN<T, T>(x, v.x), LTMIN<T, T>(y, v.y));
 	}
 
 	//each component will be set to the larger of the current value or the passed in value
 	void Max(const LTVector2& v)
 	{
-		Init(LTMAX(x, v.x), LTMAX(y, v.y));
+		Init(LTMAX<T, T>(x, v.x), LTMAX<T, T>(y, v.y));
 	}
 
 	//each component will be set to the lower of the current value or the passed in value
 	LTVector2 GetMin(const LTVector2& v) const
 	{
-		return LTVector2(LTMIN(x, v.x), LTMIN(y, v.y));
+		return LTVector2(LTMIN<T, T>(x, v.x), LTMIN<T, T>(y, v.y));
 	}
 	//each component will be set to the larger of the current value or the passed in value
 	LTVector2 GetMax(const LTVector2& v) const
 	{
-		return LTVector2(LTMAX(x, v.x), LTMAX(y, v.y));
+		return LTVector2(LTMAX<T, T>(x, v.x), LTMAX<T, T>(y, v.y));
 	}
 
 };

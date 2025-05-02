@@ -334,7 +334,7 @@ class DeviceDef
 
 		// If it's referenced by one of the special names (##mouse or ##keyboard),
 		// then it's stored here and should be saved in the bindings as such.
-		char		*m_pSpecialName;
+		const char	*m_pSpecialName;
 
 		// How many bytes used to read a state (GetDeviceState()).
 		uint32		m_StateReadSize;
@@ -1034,7 +1034,7 @@ static void input_TraceDInputError( HRESULT hResult )
 }
 
 
-static char* GetDeviceObjectTypeString(LPCDIDEVICEOBJECTINSTANCE pObj)
+static const char* GetDeviceObjectTypeString(LPCDIDEVICEOBJECTINSTANCE pObj)
 {
 	if(pObj->guidType == GUID_XAxis)
 		return "X axis";
@@ -1997,7 +1997,7 @@ void input_SaveBindings( FILE *fp )
 	TriggerAction *pAction;
 	ActionDef *pCurActionDef;
 	char str[1024], str2[1024];
-	char *pDeviceName;
+	const char *pDeviceName;
 	GPOS triggerPos;
 
 

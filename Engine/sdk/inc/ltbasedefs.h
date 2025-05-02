@@ -1558,7 +1558,7 @@ You can use this just like Parse like this:
 
 while(ParseFind("AmbientLight", false)) { ... }
 */
-    bool ParseFind(char *pLookFor, bool bCaseSensitive, uint32 minTokens=1);
+    bool ParseFind(const char *pLookFor, bool bCaseSensitive, uint32 minTokens=1);
 
 private:
     const char *m_pCommandPos;
@@ -1613,8 +1613,8 @@ template<class T, int size>
 class ObjArray : public BaseObjArray<T> {
 public:
     ObjArray() {
-        m_pArray = m_Array;
-        m_MaxListSize = size;
+		BaseObjArray<T>::m_pArray = m_Array;
+		BaseObjArray<T>::m_MaxListSize = size;
     }
 
 private:

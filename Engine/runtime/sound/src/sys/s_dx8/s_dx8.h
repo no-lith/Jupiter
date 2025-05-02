@@ -318,7 +318,7 @@ public:
 	virtual S32			GetPreference( U32 uiNumber );
 	virtual void		MemFreeLock( void* ptr );
 	virtual void*		MemAllocLock( U32 uiSize );
-	virtual char*		LastError( void );
+	virtual const char*	LastError( void );
 
 	// digital sound driver functions
 	virtual S32			WaveOutOpen( LHDIGDRIVER* phDriver, PHWAVEOUT* pphWaveOut, S32 siDeviceId, WAVEFORMAT* pWaveFormat );
@@ -338,8 +338,8 @@ public:
 	virtual S32			Open3DProvider( LHPROVIDER hLib );
 	virtual void		Close3DProvider( LHPROVIDER hLib );
 	virtual void		Set3DProviderPreference( LHPROVIDER hLib, char* sName, void* pVal );
-	virtual void		Get3DProviderAttribute( LHPROVIDER hLib, char* sName, void* pVal );
-	virtual S32			Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, char** psName);
+	virtual void		Get3DProviderAttribute( LHPROVIDER hLib, const char* sName, void* pVal );
+	virtual S32			Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, const char** psName);
 
 	// 3d listener functions
 	virtual LH3DPOBJECT	Open3DListener( LHPROVIDER hLib );
@@ -429,7 +429,7 @@ public:
 
 	// wave file decompression functons
 	virtual S32			DecompressADPCM( LTSOUNDINFO* pInfo, void** ppOutData, U32* puiOutSize );
-	virtual S32			DecompressASI( void* pInData, U32 uiInSize, char* sFilename_ext, void** ppWav, U32* puiWavSize, LTLENGTHYCB fnCallback );
+	virtual S32			DecompressASI( void* pInData, U32 uiInSize, const char* sFilename_ext, void** ppWav, U32* puiWavSize, LTLENGTHYCB fnCallback );
 	UINT				ReadStream( WaveFile* pStream, BYTE* pOutBuffer, int nSize );
 	BYTE*				GetCompressedBuffer() { return m_pCompressedBuffer; }
 	BYTE*				GetDecompressedBuffer() { return m_pDecompressedBuffer; }
@@ -462,7 +462,7 @@ private:
 
 public:
 	static CDx8SoundSys m_Dx8SoundSys;
-	static char*		m_pcDx8SoundSysDesc;
+	static const char*	m_pcDx8SoundSysDesc;
 
 public:
 	bool				m_bCOMInitialized;
@@ -473,7 +473,7 @@ public:
 	WAVEFORMATEX		m_waveFormat;
 	DSCAPS				m_dscaps;
 	HRESULT				m_hResult;
-	char*				m_pcLastError;
+	const char*			m_pcLastError;
 	HACMDRIVERID		m_hAcmPCMDriverId;
 	HACMDRIVER			m_hAcmPCMDriver;
 	HACMDRIVERID		m_hAcmADPCMDriverId;

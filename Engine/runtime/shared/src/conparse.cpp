@@ -43,7 +43,7 @@ bool ConParse::Parse()
 	return true;
 }
 
-bool ConParse::ParseFind(char *pLookFor, bool bCaseSensitive, uint32 minTokens)
+bool ConParse::ParseFind(const char *pLookFor, bool bCaseSensitive, uint32 minTokens)
 {
 	bool equal;
 

@@ -93,7 +93,7 @@ extern void DebugConsoleOutput(const char* msg, uint8 nRed = 255, uint8 nBlue = 
 #define SAFE_RELEASE(p)      { if(p) { (p)->Release(); (p)=NULL; } }
 
 // output error to console
-void LTDMConOutError(char *pMsg, ...)
+void LTDMConOutError(const char *pMsg, ...)
 {
 	if (g_CV_LTDMConsoleOutput >= 1)
 	{
@@ -114,7 +114,7 @@ void LTDMConOutError(char *pMsg, ...)
 }
 
 // output warning to console
-void LTDMConOutWarning(char *pMsg, ...)
+void LTDMConOutWarning(const char *pMsg, ...)
 {
 	if (g_CV_LTDMConsoleOutput >= 2)
 	{
@@ -135,7 +135,7 @@ void LTDMConOutWarning(char *pMsg, ...)
 }
 
 // output message to console
-void LTDMConOutMsg(int nLevel, char *pMsg, ...)
+void LTDMConOutMsg(int nLevel, const char *pMsg, ...)
 {
 	if (g_CV_LTDMConsoleOutput >= nLevel)
 	{

@@ -297,7 +297,7 @@ LTRESULT dsi_LoadServerObjects(CClassMgr *pClassMgr)
 {
     char fileName[256];
     int status;
-    char *pDLLName;
+    const char *pDLLName;
 
     pDLLName = "object.lto";
 
@@ -358,7 +358,7 @@ void dsi_ServerSleep(uint32 ms) {
 
 extern int32 g_ScreenWidth, g_ScreenHeight; // Console variables.
 
-static void dsi_GetDLLModes(char *pDLLName, RMode **pMyList) {
+static void dsi_GetDLLModes(const char *pDLLName, RMode **pMyList) {
     RMode *pMyMode;
     RMode *pListHead, *pCur;
 

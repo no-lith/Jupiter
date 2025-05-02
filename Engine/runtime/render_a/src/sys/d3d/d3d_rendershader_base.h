@@ -4,6 +4,10 @@
 #ifndef __D3D_RENDERSHADER_BASE_H__
 #define __D3D_RENDERSHADER_BASE_H__
 
+#include "d3d_viewparams.h"
+#include "d3d_rendershader_dynamiclight.h"
+#include "rendererconsolevars.h"
+#include "d3d_texture.h"
 #include "d3d_rendershader.h"
 #include "d3d_renderblock.h"
 #include "d3d_device.h"
@@ -119,7 +123,7 @@ public:
 
 			aVBSizes.reserve(16);
 
-			TSectionList::iterator iFinger = m_aSections.begin();
+			auto iFinger = m_aSections.begin();
 			for (; iFinger != m_aSections.end(); ++iFinger)
 			{
 				CInternalSection &cCurSection = *iFinger;
@@ -338,7 +342,7 @@ public:
 		{
 			// Update the textures for this renderblock
 			CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-			CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+			auto iCurSection = cRB.m_aSections.begin();
 			for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 			{
 				m_aSections[*iCurSection].UpdateTexture();
@@ -412,7 +416,7 @@ public:
 
 		bool bChangeSection = true;
 
-		TSectionList::iterator iCurSection = m_aSections.begin();
+		auto iCurSection = m_aSections.begin();
 
 		for (;;)
 		{
@@ -452,7 +456,7 @@ public:
 			uint32 nEndVertex = iCurSection->m_nEndVertex;
 
 			// Queue up any continguous sections
-			TSectionList::iterator iFirstSection = iCurSection;
+			auto iFirstSection = iCurSection;
 			for (++iCurSection; iCurSection != m_aSections.end(); ++iCurSection)
 			{
 				if ((!iCurSection->m_bQueuedForRender) ||
@@ -535,7 +539,7 @@ protected:
 
 		// Draw more triangles.
 		CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-		CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+		auto iCurSection = cRB.m_aSections.begin();
 		for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 		{
 			CInternalSection &cSection = m_aSections[*iCurSection];
@@ -571,7 +575,7 @@ protected:
 
 			// Draw the diffuse color & fill in the Z-Buffer
 			CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-			CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+			auto iCurSection = cRB.m_aSections.begin();
 			for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 			{
 				CInternalSection &cSection = m_aSections[*iCurSection];
@@ -637,7 +641,7 @@ protected:
 			}
 
 			CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-			CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+			auto iCurSection = cRB.m_aSections.begin();
 			for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 			{
 				CInternalSection &cSection = m_aSections[*iCurSection];
@@ -726,7 +730,7 @@ protected:
 		bool bCurAlphaTest = nOldAlphaTest != 0;
 
 		CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-		CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+		auto iCurSection = cRB.m_aSections.begin();
 		for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 		{
 			CInternalSection &cSection = m_aSections[*iCurSection];
@@ -768,7 +772,7 @@ protected:
 	void QueueRenderBlock(uint32 nRenderBlock)
 	{
 		CRenderBlockData &cRB = m_aRenderBlocks[nRenderBlock];
-		CRenderBlockData::TSectionIndexList::iterator iCurSection = cRB.m_aSections.begin();
+		auto iCurSection = cRB.m_aSections.begin();
 		for (; iCurSection != cRB.m_aSections.end(); ++iCurSection)
 		{
 			m_aSections[*iCurSection].m_bQueuedForRender = true;
@@ -793,8 +797,8 @@ protected:
 				return NULL;
 			}
 
-			TSectionList::iterator iCurSection = m_aSections.begin() + m_aPreviewRenderBlocks[nRenderBlock];
-			TSectionList::iterator iEndSection = (nRenderBlock < (m_aPreviewRenderBlocks.size() - 1))
+			auto iCurSection = m_aSections.begin() + m_aPreviewRenderBlocks[nRenderBlock];
+			auto iEndSection = (nRenderBlock < (m_aPreviewRenderBlocks.size() - 1))
 				? (m_aSections.begin() + m_aPreviewRenderBlocks[nRenderBlock + 1]) : m_aSections.end();
 			for (; iCurSection != iEndSection; ++iCurSection)
 			{
@@ -889,8 +893,8 @@ protected:
 	// Mark the section breaks
 	virtual void MarkSectionBreaks()
 	{
-		TSectionList::iterator iCurSection = m_aSections.begin();
-		TSectionList::iterator iPrevSection = m_aSections.end();
+		auto iCurSection = m_aSections.begin();
+		auto iPrevSection = m_aSections.end();
 		for (; iCurSection != m_aSections.end(); ++iCurSection)
 		{
 			iCurSection->m_bSectionBreak =
@@ -989,7 +993,7 @@ private:
 		aSortedSections.reserve(m_aSections.size());
 
 		// Put them in order
-		TIndexList::iterator iCurIndex = aSortIndices.begin();
+		auto iCurIndex = aSortIndices.begin();
 		CInternalSection is;
 		for (; iCurIndex != aSortIndices.end(); ++iCurIndex)
 		{
@@ -1008,7 +1012,8 @@ private:
 		m_aSections.swap(aSortedSections);
 
 		// We don't need you any more
-		m_aPreviewRenderBlocks.swap(TRenderBlockPreviewList());
+		m_aPreviewRenderBlocks.clear();
+		m_aPreviewRenderBlocks.shrink_to_fit();
 	}
 
 	// Actually unlock the IB & VB's, which is delayed until it actually starts rendering
@@ -1027,7 +1032,8 @@ private:
 			(*iCurVB)->Unlock();
 		}
 
-		m_aLockedVertices.swap(TLockedVertexList());
+		m_aLockedVertices.clear();
+		m_aLockedVertices.shrink_to_fit();
 
 		// Unlock the IB
 		m_pIB->Unlock();
@@ -1189,11 +1195,11 @@ protected:
 				spr_UpdateTracker(&m_pSpriteData[nCurrSpr]->m_SpriteTracker, nDeltaTimeMS);
 				if (m_pSpriteData[nCurrSpr]->m_SpriteTracker.m_pCurFrame)
 				{
-					SetTexture(m_pSpriteData[nCurrSpr]->m_SpriteTracker.m_pCurFrame->m_pTex);
+					CShaderSection::SetTexture(m_pSpriteData[nCurrSpr]->m_SpriteTracker.m_pCurFrame->m_pTex);
 				}
 				else
 				{
-					SetTexture(LTNULL);
+					CShaderSection::SetTexture(LTNULL);
 				}
 			}
 		}

@@ -285,7 +285,7 @@ class CNetMgr
 						CNetMgr();
 						~CNetMgr();
 
-		bool			Init(char *pPlayerName);
+		bool			Init(const char *pPlayerName);
 		void			Term();
 		
 		// Creates all the necessary drivers.
@@ -306,8 +306,8 @@ class CNetMgr
 
 		LTRESULT		GetMaxConnections(uint32 &nMaxConnections);
 
-		void			NetDebugOut(int debugLevel, char *pMsg, ...);
-		void			NetDebugOut2(CBaseConn *pConn, int debugLevel, char *pMsg, ...);
+		void			NetDebugOut(int debugLevel, const char *pMsg, ...);
+		void			NetDebugOut2(CBaseConn *pConn, int debugLevel, const char *pMsg, ...);
 
 		void			SetNetHandler(CNetHandler *pHandler);
 
@@ -316,7 +316,7 @@ class CNetMgr
 
 
 		// pPrefix is inserted in front of some debugging messages.
-		void			Update(char *pPrefix, float fCurTime, bool bAllowTimeout=true);
+		void			Update(const char *pPrefix, float fCurTime, bool bAllowTimeout=true);
 
 		CBaseDriver*	AddDriver( const char *pDriverInfo );
 		CBaseDriver*	GetDriver( const char* sDriver );
@@ -377,7 +377,7 @@ class CNetMgr
 		char					m_PlayerName[100];
 		CNetHandler				*m_pHandler;
 
-		char					*m_pCurPrefix;
+		const char				*m_pCurPrefix;
 
 		float					m_FrameTime;
 	

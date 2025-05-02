@@ -386,7 +386,7 @@ public:
 	virtual sint32		GetPreference( uint32 uiNumber ) = 0;
 	virtual void		MemFreeLock( void* ptr ) = 0;
 	virtual void*		MemAllocLock( uint32 uiSize ) = 0;
-	virtual char*		LastError( void ) = 0;
+	virtual const char*	LastError( void ) = 0;
 
 	// digital sound driver functions
 	virtual sint32		WaveOutOpen( LHDIGDRIVER* phDriver, PHWAVEOUT* pphWaveOut, sint32 siDeviceId, WAVEFORMAT* pWaveFormat ) = 0;
@@ -406,8 +406,8 @@ public:
 	virtual sint32		Open3DProvider( LHPROVIDER hLib ) = 0;
 	virtual void		Close3DProvider( LHPROVIDER hLib ) = 0;
 	virtual void		Set3DProviderPreference( LHPROVIDER hLib, char* sName, void* pVal ) = 0;
-	virtual void		Get3DProviderAttribute( LHPROVIDER hLib, char* sName, void* pVal ) = 0;
-	virtual sint32		Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, char** psName) = 0;
+	virtual void		Get3DProviderAttribute( LHPROVIDER hLib, const char* sName, void* pVal ) = 0;
+	virtual sint32		Enumerate3DProviders( LHPROENUM* phNext, LHPROVIDER* phDest, const char** psName) = 0;
 
 	// 3d listener functions
 	virtual LH3DPOBJECT	Open3DListener( LHPROVIDER hLib ) = 0;
@@ -495,7 +495,7 @@ public:
 
 	// wave file decompression functons
 	virtual sint32		DecompressADPCM( LTSOUNDINFO* pInfo, void** ppOutData, uint32* puiOutSize ) = 0;
-	virtual sint32		DecompressASI( void* pInData, uint32 uiInSize, char* sFilename_ext, void** ppWav, uint32* puiWavSize, LTLENGTHYCB fnCallback ) = 0;
+	virtual sint32		DecompressASI( void* pInData, uint32 uiInSize, const char* sFilename_ext, void** ppWav, uint32* puiWavSize, LTLENGTHYCB fnCallback ) = 0;
 
 	// Gets the ticks spent in sound thread.
 	virtual uint32		GetThreadedSoundTicks( ) = 0;

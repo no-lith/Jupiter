@@ -98,11 +98,15 @@ static bool StartClient(ClientGlob *pGlob)
 
     for (uint32 i = 0; i < command_line_args->Argc() - 1; i++) {
         //check if this argument is -rez
-        if (stricmp(command_line_args->Argv(i), "-rez") == 0) {
-            //save this parameter.
-            resTrees[nResTrees++] = command_line_args->Argv(i + 1);
-            if (nResTrees+1 >= MAX_RESTREES) {
-                break;
+
+        if (auto Arg = command_line_args->Argv(i))
+        {
+            if (stricmp(Arg, "-rez") == 0) {
+                //save this parameter.
+                resTrees[nResTrees++] = command_line_args->Argv(i + 1);
+                if (nResTrees+1 >= MAX_RESTREES) {
+                    break;
+                }
             }
         }
     }
