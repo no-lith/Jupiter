@@ -26,5 +26,5 @@ workspace "Jupiter-Engine"
 workspace "Jupiter-Libs"
 	include "Libs"
 	
--- Generate samples in seperate folders
+-- Generate samples in separate folders
 include "Samples"
