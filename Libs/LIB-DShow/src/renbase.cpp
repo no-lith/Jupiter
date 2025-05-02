@@ -28,7 +28,7 @@ int inline TimeDiff(REFERENCE_TIME rt)
 // Implements the CBaseRenderer class
 
 CBaseRenderer::CBaseRenderer(REFCLSID RenderClass, // CLSID for this renderer
-                             TCHAR *pName,         // Debug ONLY description
+                             const TCHAR *pName,   // Debug ONLY description
                              LPUNKNOWN pUnk,       // Aggregated owner object
                              HRESULT *phr) :       // General OLE return code
 
@@ -1753,7 +1753,7 @@ const TCHAR DRAWLATEFRAMES[] = TEXT("DrawLateFrames");
 
 CBaseVideoRenderer::CBaseVideoRenderer(
       REFCLSID RenderClass, // CLSID for this renderer
-      TCHAR *pName,         // Debug ONLY description
+      const TCHAR *pName,   // Debug ONLY description
       LPUNKNOWN pUnk,       // Aggregated owner object
       HRESULT *phr) :       // General OLE return code
 

@@ -552,7 +552,7 @@ void dprintfmonoprint(char *message )
 
 /********************************  GENERAL ROUTINES *****************************/
 
-void dprintfdoprint (char *Str) {
+void dprintfdoprint (const char *Str) {
 
 #ifdef _CONSOLE
 #ifdef _DEBUG

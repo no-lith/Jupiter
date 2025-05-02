@@ -189,15 +189,15 @@ private:
 
 public:
 
-    CBaseList(TCHAR *pName,
+    CBaseList(const TCHAR *pName,
               INT iItems);
 
-    CBaseList(TCHAR *pName);
+    CBaseList(const TCHAR *pName);
 #ifdef UNICODE
-    CBaseList(CHAR *pName,
+    CBaseList(const CHAR *pName,
               INT iItems);
 
-    CBaseList(CHAR *pName);
+    CBaseList(const CHAR *pName);
 #endif
     ~CBaseList();
 
@@ -493,7 +493,7 @@ public:
 template<class OBJECT> class CGenericList : public CBaseList
 {
 public:
-    CGenericList(TCHAR *pName,
+    CGenericList(const TCHAR *pName,
                  INT iItems,
                  BOOL bLock = TRUE,
                  BOOL bAlert = FALSE) :
@@ -501,7 +501,7 @@ public:
         UNREFERENCED_PARAMETER(bAlert);
         UNREFERENCED_PARAMETER(bLock);
     };
-    CGenericList(TCHAR *pName) :
+    CGenericList(const TCHAR *pName) :
                      CBaseList(pName) {
     };
 

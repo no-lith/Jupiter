@@ -78,7 +78,7 @@ for ( cursor = (list).GetTailPositionI()           \
    cache but no event object so the list cannot be used in calls
    to WaitForSingleObject
 */
-CBaseList::CBaseList(TCHAR *pName,    // Descriptive list name
+CBaseList::CBaseList(const TCHAR *pName,    // Descriptive list name
                      INT iItems) :    // Node cache size
 #ifdef DEBUG
     CBaseObject(pName),
@@ -90,7 +90,7 @@ CBaseList::CBaseList(TCHAR *pName,    // Descriptive list name
 {
 } // constructor
 
-CBaseList::CBaseList(TCHAR *pName) :  // Descriptive list name
+CBaseList::CBaseList(const TCHAR *pName) :  // Descriptive list name
 #ifdef DEBUG
     CBaseObject(pName),
 #endif
@@ -102,7 +102,7 @@ CBaseList::CBaseList(TCHAR *pName) :  // Descriptive list name
 } // constructor
 
 #ifdef UNICODE
-CBaseList::CBaseList(CHAR *pName,    // Descriptive list name
+CBaseList::CBaseList(const CHAR *pName,    // Descriptive list name
                      INT iItems) :    // Node cache size
 #ifdef DEBUG
     CBaseObject(pName),
@@ -114,7 +114,7 @@ CBaseList::CBaseList(CHAR *pName,    // Descriptive list name
 {
 } // constructor
 
-CBaseList::CBaseList(CHAR *pName) :  // Descriptive list name
+CBaseList::CBaseList(const CHAR *pName) :  // Descriptive list name
 #ifdef DEBUG
     CBaseObject(pName),
 #endif

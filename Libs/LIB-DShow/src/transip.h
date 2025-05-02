@@ -211,7 +211,7 @@ public:
 
 protected:
 
-    IMediaSample * CTransInPlaceFilter::Copy(IMediaSample *pSource);
+    IMediaSample * Copy(IMediaSample *pSource);
 
 #ifdef PERF
     int m_idTransInPlace;                 // performance measuring id

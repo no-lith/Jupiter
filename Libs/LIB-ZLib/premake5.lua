@@ -1,7 +1,7 @@
 project "LIB-ZLib"
 	kind "StaticLib"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++20"
 	staticruntime "on"
 
 	targetdir (bindir)

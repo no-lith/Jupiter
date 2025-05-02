@@ -1197,18 +1197,12 @@ bool CButeMgr::Save(const char* szNewFileName)
 	m_pSaveData->clear();
 	if (m_bCrypt)
 	{
+		std::ofstream Ofs(szNewFileName ? szNewFileName : m_sAttributeFilename.GetBuffer(), std::ios_base::binary);
+
 		if (szNewFileName)
-#if _MSC_VER >= 1300
-			m_cryptMgr.Encrypt(*m_pSaveData, std::ofstream(szNewFileName, std::ios_base::binary));
-#else
-			m_cryptMgr.Encrypt(*m_pSaveData, ofstream(szNewFileName, ios::binary));
-#endif // VC7
+			m_cryptMgr.Encrypt(*m_pSaveData, Ofs);
 		else
-#if _MSC_VER >= 1300
-			m_cryptMgr.Encrypt(*m_pSaveData, std::ofstream(m_sAttributeFilename, std::ios_base::binary));
-#else
-			m_cryptMgr.Encrypt(*m_pSaveData, ofstream(m_sAttributeFilename, ios::binary));
-#endif // VC7
+			m_cryptMgr.Encrypt(*m_pSaveData, Ofs);
 	}
 
 	// Delete the buffer.

@@ -97,7 +97,7 @@ public:
 
 private:
     // constructors and destructors
-	CRezItm::CRezItm();
+	CRezItm();
 
 	// init and term
     void InitRezItm(CRezDir* pParentDir, REZNAME sName, REZID nID, CRezTyp* pType, REZDESC sDesc,
@@ -191,7 +191,7 @@ public:
 	REZTIME     GetTime() { return m_nLastTimeModified; };		    // Last time resource was modified in this dir
 
 private:
-    CRezDir(CRezMgr* pRezMgr, CRezDir* pParentDir, REZDIRNAME szDirName, DWORD nFilePos, 
+    CRezDir(CRezMgr* pRezMgr, CRezDir* pParentDir, const REZDIRNAME szDirName, DWORD nFilePos, 
 			DWORD nSize, REZTIME nTime, unsigned int nDirNumHashBins, unsigned int nTypNumHashBins);
     ~CRezDir();
 

@@ -5,26 +5,27 @@ workspace "Jupiter-Libs"
 
 	characterset ("ASCII")
 
-	configurations
-	{
-		"Debug",
-		"Release"
-	}
+	configurations { "Debug", "Release", "Final" }
 
-	flags
-	{
-		"MultiProcessorCompile"
-	}
+	filter "configurations:*"
+		defines { "WIN32", "_WINDOWS" }
 
-	filter "configurations:Debug"
-		defines { "WIN32", "_DEBUG", "DEBUG", "_WINDOWS" }
+	filter "Debug"
+		defines { "_DEBUG", "DEBUG" }
 		runtime "Debug"
 		symbols "on"
 
-	filter "configurations:Release"
-		defines { "WIN32", "NDEBUG", "_WINDOWS" }
+	filter "Release or Final"
+		defines { "NDEBUG" }
 		runtime "Release"
 		optimize "full"
+
+	filter "Final"
+		defines { "_FINAL" }
+
+	filter {}
+
+	flags { "MultiProcessorCompile" }
 
 	-- Projects
 	include "LIB-ButeMgr"

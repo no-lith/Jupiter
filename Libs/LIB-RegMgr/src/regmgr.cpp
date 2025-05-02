@@ -147,8 +147,9 @@ BOOL CRegMgr::Delete(const char* sKey) {
 
 BOOL CRegMgr::CreateKey(HKEY hKey, const char* sSubKey, HKEY& hNewKey) {
   DWORD nDisposition;
+  char cClass = '\0';
 //  if (RegCreateKeyEx(hKey, sSubKey, 0, "", REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hNewKey,
-  if (RegCreateKeyEx(hKey, sSubKey, 0, "", REG_OPTION_NON_VOLATILE, KEY_READ | KEY_WRITE, NULL, &hNewKey,
+  if (RegCreateKeyEx(hKey, sSubKey, 0, &cClass, REG_OPTION_NON_VOLATILE, KEY_READ | KEY_WRITE, NULL, &hNewKey,
       &nDisposition) == ERROR_SUCCESS) return TRUE;
   else return FALSE;
 };

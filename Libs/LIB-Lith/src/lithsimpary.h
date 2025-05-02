@@ -23,6 +23,8 @@
 #define __MEMORY_H__
 #endif
 
+#include <cstring>
+
 // examples of use
 //#define CLithSimpAryVoidPtr       CLithSimpAry<void*>
 //#define CLithSimpAryChar          CLithSimpAry<char>

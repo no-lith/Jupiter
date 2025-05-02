@@ -97,7 +97,7 @@ protected:
 public:
 
     CBaseRenderer(REFCLSID RenderClass, // CLSID for this renderer
-                  TCHAR *pName,         // Debug ONLY description
+                  const TCHAR *pName,   // Debug ONLY description
                   LPUNKNOWN pUnk,       // Aggregated owner object
                   HRESULT *phr);        // General OLE return code
 
@@ -408,7 +408,7 @@ public:
 
 
     CBaseVideoRenderer(REFCLSID RenderClass, // CLSID for this renderer
-                       TCHAR *pName,         // Debug ONLY description
+                       const TCHAR *pName,   // Debug ONLY description
                        LPUNKNOWN pUnk,       // Aggregated owner object
                        HRESULT *phr);        // General OLE return code
 

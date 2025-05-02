@@ -399,7 +399,8 @@ BOOL CRegMgr32::CreateKey(HKEY hRootKey, char *szKey1, char *szKey2, char *szKey
 	m_csKey = CombineKeys(szKey1,szKey2,szKey3,szKey4,szKey5,szKey6,szKey7,szKey8,szKey9);
 		
 	DWORD dwResult;
-	if(RegCreateKeyEx(hRootKey,m_csKey,0,"",REG_OPTION_NON_VOLATILE,KEY_READ | KEY_WRITE,NULL,&m_hKey,&dwResult) == ERROR_SUCCESS)
+	char cClass = '\0';
+	if(RegCreateKeyEx(hRootKey,m_csKey,0,&cClass,REG_OPTION_NON_VOLATILE,KEY_READ | KEY_WRITE,NULL,&m_hKey,&dwResult) == ERROR_SUCCESS)
 	{
 		if(dwResult == REG_OPENED_EXISTING_KEY)
 		{

@@ -329,7 +329,8 @@ HKEY CGenRegMgr::OpenKey (LPCSTR strKey)
 		ptr = strtok (NULL, sep);
 		assert (ptr);
 
-		if (RegCreateKeyEx (m_pKeys[i - 1], ptr, 0, "", 0, (KEY_READ | KEY_WRITE), NULL, &m_pKeys[i], (unsigned long *)&dwDisposition) != ERROR_SUCCESS)
+		char cClass = '\0';
+		if (RegCreateKeyEx (m_pKeys[i - 1], ptr, 0, &cClass, 0, (KEY_READ | KEY_WRITE), NULL, &m_pKeys[i], (unsigned long *)&dwDisposition) != ERROR_SUCCESS)
 		{
 			goto error;
 		}
@@ -348,7 +349,8 @@ HKEY CGenRegMgr::OpenKey (LPCSTR strKey)
 	ptr = strtok (NULL, sep);
 	assert (ptr);
 	HKEY hKeyReturned = NULL;
-	if (RegCreateKeyEx (m_pKeys[m_nKeys - 1], ptr, 0, "", 0, (KEY_READ | KEY_WRITE), NULL, &hKeyReturned, (unsigned long *)&dwDisposition) != ERROR_SUCCESS)
+	char cClass = '\0';
+	if (RegCreateKeyEx (m_pKeys[m_nKeys - 1], ptr, 0, &cClass, 0, (KEY_READ | KEY_WRITE), NULL, &hKeyReturned, (unsigned long *)&dwDisposition) != ERROR_SUCCESS)
 	{
 		goto error;
 	}
