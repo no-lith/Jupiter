@@ -40,7 +40,7 @@ enum ECommands
         COMMAND_FX_PREV                 = 21,
         COMMAND_FX_TOGGLEGUI            = 22,
         COMMAND_FX_STOP                 = 23,
-        
+                
 		COMMAND_QUIT					= 250
 };
 

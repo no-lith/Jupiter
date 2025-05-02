@@ -64,7 +64,11 @@ LTMatrix CCamera::GetCameraTransform()
 
 	LTMatrix mTran, mRot, mFull;
 
-	mRot.SetBasisVectors((LTVector*)&rRot.Right(), (LTVector*)&rRot.Up(),(LTVector*)&rRot.Forward());
+	vRight = rRot.Right();
+	vUp = rRot.Up();
+	vForward = rRot.Forward();
+
+	mRot.SetBasisVectors(&vRight, &vUp, &vForward);
 	MatTranspose3x3(&mRot);
 
 	Mat_Identity(&mTran);

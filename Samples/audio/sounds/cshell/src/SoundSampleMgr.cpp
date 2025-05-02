@@ -453,7 +453,7 @@ void SoundSampleMgr::CreateSample(const char *pFilename, const LTVector &Pos)
 	pSample->SetPosition(Pos);
 
 	// Load the model for this sound.
-	std::vector<char*> Skins;
+	std::vector<const char*> Skins;
 	LTVector Scale(3.0f, 3.0f, 3.0f);
 	LTRotation Rot;
 	Skins.push_back("ModelTextures\\GenRadio.dtx");
@@ -474,7 +474,7 @@ void SoundSampleMgr::CreateSample(const char *pFilename, const LTVector &Pos)
 //  Purpose:	Loads a model using the given model parameters.
 //
 //----------------------------------------------------------------------------
-HLOCALOBJ SoundSampleMgr::LoadModel(const char *pModelFilename, const std::vector<char*> &Skins,
+HLOCALOBJ SoundSampleMgr::LoadModel(const char *pModelFilename, const std::vector<const char*> &Skins,
 							   		const LTVector &Pos, const LTVector &Scale, const LTRotation &Rot, const char *pAnimName)
 {
 	HLOCALOBJ hObject = NULL;

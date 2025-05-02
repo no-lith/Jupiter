@@ -736,7 +736,7 @@ static inline void CalcSample(float* pCurr, const float* pPrev, float fVelocCoef
 }
 
 //outputs a standard height to the buffer and moves both pointers forward
-static inline void OutputHeight(char*& pOut, const float*& pCurr)
+static inline void OutputHeight(char*& pOut, float*& pCurr)
 {
 	*pOut = (char)*pCurr;
 	pOut++;
@@ -744,7 +744,7 @@ static inline void OutputHeight(char*& pOut, const float*& pCurr)
 }
 
 //outputs a dampened standard height to the buffer and moves all pointers forward
-static inline void OutputDampenedHeight(char*& pOut, const float*& pCurr, const uint8*& pDampen)
+static inline void OutputDampenedHeight(char*& pOut, float*& pCurr, uint8*& pDampen)
 {
 	*pOut = (char)(((int32)((*pCurr) * (*pDampen))) >> 8);
 	pOut++;

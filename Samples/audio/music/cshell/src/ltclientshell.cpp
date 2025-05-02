@@ -46,7 +46,7 @@ CLTClientShell* g_pCShell = NULL;
 define_interface(CLTClientShell, IClientShell);
 
 // Segment names used for GUI display
-char* g_sSegments[] =
+const char* g_sSegments[] =
 {
 	"None",
     "Combat.sgt",
@@ -639,7 +639,7 @@ void CLTClientShell::OnCommandOff(int command)
 //---------------------------------------------------------------------------
 void CLTClientShell::UpdateGuiText(int nIndex)
 {
-	char *sState;
+	const char *sState;
 
 	if(m_bMusicPaused)
 	{

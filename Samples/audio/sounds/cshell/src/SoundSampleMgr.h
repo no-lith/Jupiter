@@ -136,7 +136,7 @@ public:
 protected:
 
 	void			CreateSample(const char *pFilename, const LTVector &Pos);
-	HLOCALOBJ 		LoadModel(const char *pModelFilename, const std::vector<char*> &Skins,
+	HLOCALOBJ 		LoadModel(const char *pModelFilename, const std::vector<const char*> &Skins,
 							  const LTVector &Pos, const LTVector &Scale, const LTRotation &Rot, const char *pAnimName);
 	void			IncCurrentSample(int Offset);
 

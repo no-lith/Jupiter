@@ -1,7 +1,7 @@
 project "CShell"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++20"
 	staticruntime "on"
 
 	targetdir (local_bindir)
@@ -28,11 +28,20 @@ project "CShell"
 	{
 		"src",
 		local_shrdir .. "/src",
+
+		"%{wks.location}/cres/src",
+
+		engdir .. "/ClientFX/src/Shared",
 		
 		sdkdir,
 		
 		-- external libs
 		libdir .. "/LIB-GuiMgr/src"
+	}
+
+	libdirs
+	{
+		bindir
 	}
 
 	links 

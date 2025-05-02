@@ -1,7 +1,7 @@
 project "CShell"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++20"
 	staticruntime "on"
 
 	targetdir (local_bindir)
@@ -11,8 +11,8 @@ project "CShell"
 
 	files
 	{
-		"src/**.h",
-		"src/**.cpp",
+		"src/*.h",
+		"src/*.cpp",
 
 		local_shrdir .. "/src/commandids.h",
 		local_shrdir .. "/src/msgids.h",

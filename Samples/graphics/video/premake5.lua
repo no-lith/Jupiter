@@ -1,27 +1,34 @@
--- Jupiter-Samples
-workspace "ClientFX"
+workspace "Video"
 	architecture "x86"
 	startproject "cshell"
 
 	characterset ("ASCII")
 
-	configurations { "Debug", "Release" }
+	configurations { "Debug", "Release", "Final" }
 
-	flags { "MultiProcessorCompile" }
+	filter "configurations:*"
+		defines { "WIN32", "_WINDOWS" }
 
-	filter "configurations:Debug"
-		defines { "WIN32", "_DEBUG", "DEBUG", "_WINDOWS" }
+	filter "Debug"
+		defines { "_DEBUG", "DEBUG" }
 		runtime "Debug"
 		symbols "on"
 
-	filter "configurations:Release"
-		defines { "WIN32", "NDEBUG", "_WINDOWS" }
+	filter "Release or Final"
+		defines { "NDEBUG" }
 		runtime "Release"
 		optimize "full"
 
-	shrdir = "%{wks.location}/shared"
-	bindir = "%{wks.location}/bin/%{cfg.buildcfg}"
-	intdir = "%{wks.location}/bin-int/%{cfg.buildcfg}"
+	filter "Final"
+		defines { "_FINAL" }
+
+	filter {}
+
+	flags { "MultiProcessorCompile" }
+
+	local_shrdir = "%{wks.location}/shared"
+	local_bindir = "%{wks.location}/bin/%{cfg.buildcfg}"
+	local_intdir = "%{wks.location}/bin-int/%{cfg.buildcfg}"
 
 	-- Projects
 	include "cres"

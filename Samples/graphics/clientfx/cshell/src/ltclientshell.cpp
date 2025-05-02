@@ -1046,7 +1046,7 @@ void CLTClientShell::RecalcSideText()
     {
         char tmp[64];
         memset(tmp, 0, 63);
-        char *name;
+        const char *name;
         if( (m_nFxPageOffset + i - 1) < nSize)
         {
             name = CClientFXDB::GetSingleton().GetFXNameByIndex(m_nFxPageOffset + i - 1);

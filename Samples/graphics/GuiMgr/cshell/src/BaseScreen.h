@@ -129,7 +129,7 @@ public:
 
 	//default font	for items is the large font
 	//	These	AddXXX()	functions call	CreateXXX()	and then	add the control to the control list
-	CLTGUIEditCtrl * CBaseScreen::AddEditItem ( uint16 nMaxLength, uint32 nCommandID, wchar_t * pStringValue = 0, LTIntPt pos = kDefaultPos, int nFont = -1 );
+	CLTGUIEditCtrl * AddEditItem ( uint16 nMaxLength, uint32 nCommandID, wchar_t * pStringValue = 0, LTIntPt pos = kDefaultPos, int nFont = -1 );
 
 	CLTGUITextCtrl*		AddTextItem(int stringID, uint32	commandID, int	helpID, LTIntPt pos = kDefaultPos, LTBOOL	bFixed =	LTFALSE,	int nFont =	-1);
 	CLTGUITextCtrl*		AddTextItem(wchar_t *pString,	uint32 commandID,	int helpID,	LTIntPt pos	= kDefaultPos,	LTBOOL bFixed = LTFALSE, int nFont = -1);

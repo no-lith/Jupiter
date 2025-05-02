@@ -8,7 +8,7 @@ class StringTokenizer
 {
 
 public:
-  StringTokenizer(char *pData, char *pDelimiter)
+  StringTokenizer(const char *pData, const char *pDelimiter)
   {
     data = pData;
     dataLen = (int)strlen(data);
@@ -90,8 +90,8 @@ void reset()
 
 
 private:
-  char *data;
-  char *delimiter;
+  const char *data;
+  const char *delimiter;
   int offset;
   bool done;
   int dataLen;

@@ -1,7 +1,7 @@
 project "CRes"
 	kind "SharedLib"
 	language "C++"
-	cppdialect "C++14"
+	cppdialect "C++20"
 	staticruntime "on"
 
 	targetdir (local_bindir)

@@ -19,6 +19,9 @@
 #include <ilttexturestring.h>
 
 #include "clientinterfaces.h"
+
+#include <string>
+
 class LTFontParams;
 
 
