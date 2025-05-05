@@ -390,21 +390,23 @@ void CPacket_Read::ReadData(void *pData, uint32 nBits)
 //--------------------------------------------------------------------------------------------
 void CPacket_Read::ReadDataRaw(void *pData, uint32 nBytes)
 {
-	uint32 *pData32 = reinterpret_cast<uint32*>(pData);
-
-	CPacket_Data::TConstIterator iTer = m_pData->Begin();
-	uint32 nByteCap = m_pData->GetByteCapacity();
-
-	while ( nBytes )
+	if (pData && nBytes)
 	{
-		memcpy ( pData32, iTer.m_pChunk->m_aData, (nBytes >  nByteCap ? nByteCap : ((nBytes+3)/4)*4));
+		uint8 *pData8 = reinterpret_cast<uint8*>(pData);
 
-		if ( nBytes <= nByteCap )
-			return;
+		CPacket_Data::TConstIterator iTer = m_pData->Begin();
+		uint32 nByteCap = m_pData->GetByteCapacity();
 
-		nBytes -= nByteCap;
-		pData32 += nByteCap/4;
-		iTer.NextChunk();
+		do
+		{
+			const uint32 nByteSize = LTMIN(nBytes, nByteCap);
+
+			memcpy(pData8, iTer.m_pChunk->m_aData, nByteSize);
+
+			nBytes -= nByteSize;
+			pData8 += nByteSize;
+		}
+		while (nBytes && iTer.NextChunk().m_pChunk);
 	}
 }
 
