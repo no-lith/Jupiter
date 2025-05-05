@@ -3,6 +3,7 @@ project "LIB-DShow"
 	language "C++"
 	cppdialect "C++20"
 	staticruntime "on"
+	warnings "Extra"
 
 	pchheader "streams.h"
 	pchsource "src/dllentry.cpp"

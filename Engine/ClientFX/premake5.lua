@@ -3,6 +3,7 @@ project "ClientFX"
 	language "C++"
 	cppdialect "C++20"
 	staticruntime "on"
+	warnings "Extra"
 
 	pchheader "stdafx.h"
 	pchsource "src/stdafx.cpp"

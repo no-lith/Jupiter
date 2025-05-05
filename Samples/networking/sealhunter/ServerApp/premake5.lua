@@ -3,6 +3,7 @@ project "ServerApp"
 	language "C++"
 	cppdialect "C++20"
 	staticruntime "on"
+	warnings "Extra"
 
 	pchheader "stdafx.h"
 	pchsource "src/win32/StdAfx.cpp"

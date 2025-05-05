@@ -3,6 +3,7 @@ project "LIB-Sound"
 	language "C++"
 	cppdialect "C++20"
 	staticruntime "on"
+	warnings "Extra"
 
 	characterset ("ASCII")
 

@@ -3,6 +3,7 @@ project "LIB-RezMgr"
 	language "C++"
 	cppdialect "C++20"
 	staticruntime "on"
+	warnings "Extra"
 
 	targetdir (bindir)
 	objdir (intdir .. "/%{prj.name}")
