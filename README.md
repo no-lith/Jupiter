@@ -22,7 +22,9 @@ The tools have not been ported, PR is welcome.
 This will generate all the solutions and projects
 
 **Jupiter-Engine**: Core, ClientFX, , Render, Server and Sound
+
 **Jupiter-Libs**: Shared libs
+
 **Samples**: Each sample has its own solution, usually the projects of a sample are CRes (Client Res), CShell (ClientShell), SShell or Object (ServerShell) and SRes (Server Res).
 
 # TODO
