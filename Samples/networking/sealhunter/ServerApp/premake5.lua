@@ -5,12 +5,12 @@ project "ServerApp"
 	staticruntime "on"
 
 	pchheader "stdafx.h"
-	pchsource "src/win32/stdafx.cpp"
+	pchsource "src/win32/StdAfx.cpp"
 
 	targetdir (local_bindir)
 	objdir (local_intdir .. "/%{prj.name}")
 
-	libdirs { bindir.. "/**" }
+	libdirs { bindir }
 	
 	files
 	{
@@ -18,12 +18,15 @@ project "ServerApp"
 		"src/**.cpp",
 		"src/**.rc",
 
-		sdkdir .. "/ltmodule.h"
+		sdkdir .. "/ltmodule.h",
+		sdkdir .. "/ltmodule.cpp"
 	}
 
 	includedirs
 	{
 		"src",
+		"src/shared",
+		"src/win32",
 		local_shrdir .. "/src",
 		
 		sdkdir,
@@ -35,5 +38,11 @@ project "ServerApp"
 	links
 	{
 		"LIB-Lith",
-		"LIB-STDLith"
+		"LIB-STDLith",
+		"Server"
 	}
+
+	filter { "files:**/ltmodule.cpp" }
+		flags "NoPCH"
+
+	filter {}
