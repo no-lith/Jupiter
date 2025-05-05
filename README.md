@@ -1,9 +1,3 @@
-
-
-[TOC]
-
-
-
 # Jupiter
 
 Port of PC Enterprise Edition Build 69 to C++20.
