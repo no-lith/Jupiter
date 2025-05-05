@@ -16,7 +16,7 @@
 //				Since these are fire & forget, dwFlags should never
 //				include looping
 // ----------------------------------------------------------------------- //
-void PlayClientFX(char* szFXName, HOBJECT hParent, LTVector* pvPos, LTRotation *prRot, uint32 dwFlags)
+void PlayClientFX(const char* szFXName, HOBJECT hParent, LTVector* pvPos, LTRotation *prRot, uint32 dwFlags)
 {
 	PlayClientFX( szFXName, hParent, LTNULL, pvPos, prRot, LTNULL, dwFlags );
 }
@@ -33,7 +33,7 @@ void PlayClientFX(char* szFXName, HOBJECT hParent, LTVector* pvPos, LTRotation *
 //				Since these are fire & forget, dwFlags should never
 //				include looping
 // ----------------------------------------------------------------------- //
-void PlayClientFX(char* szFXName, HOBJECT hParent, HOBJECT hTarget, LTVector* pvPos, LTRotation *prRot, LTVector *pvTargetPos, uint32 dwFlags)
+void PlayClientFX(const char* szFXName, HOBJECT hParent, HOBJECT hTarget, LTVector* pvPos, LTRotation *prRot, LTVector *pvTargetPos, uint32 dwFlags)
 {
 	LTVector vPos;
 	LTRotation rRot;
