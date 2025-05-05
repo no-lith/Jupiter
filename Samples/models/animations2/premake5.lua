@@ -1,4 +1,4 @@
-workspace "Animations"
+workspace "Animations2"
 	architecture "x86"
 	startproject "cshell"
 
