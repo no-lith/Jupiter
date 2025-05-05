@@ -50,7 +50,7 @@
 #define SAVE_COBJECT(variable) { if (variable && ((ILTBaseClass*)variable)->m_hObject == 0) { SAVE_bool(true); SAVE_LITEOBJECT(variable); } else { SAVE_bool(false); SAVE_COBJECT_INTERNAL(variable); } }
 #define LOAD_COBJECT(variable, type) { if (pMsg->Readbool()) { LOAD_LITEOBJECT(variable, type); } else { LOAD_COBJECT_INTERNAL(variable, type); } }
 
-void PlayClientFX(char* szFXName, HOBJECT hParent, LTVector* pvPos, LTRotation *prRot, uint32 dwFlags);
-void PlayClientFX(char* szFXName, HOBJECT hParent, HOBJECT hTarget, LTVector* pvPos, LTRotation *prRot, LTVector *pvTargetPos, uint32 dwFlags);
+void PlayClientFX(const char* szFXName, HOBJECT hParent, LTVector* pvPos, LTRotation *prRot, uint32 dwFlags);
+void PlayClientFX(const char* szFXName, HOBJECT hParent, HOBJECT hTarget, LTVector* pvPos, LTRotation *prRot, LTVector *pvTargetPos, uint32 dwFlags);
 
 #endif
