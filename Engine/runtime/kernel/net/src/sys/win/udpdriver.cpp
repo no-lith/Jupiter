@@ -1981,7 +1981,7 @@ bool CUDPDriver::SendTo(SOCKET theSocket, const CPacket_Read &cPacket, sockaddr_
 
 	CPacket_Read cReadPacket(cPacket);
 	cReadPacket.SeekTo(0);
-	int nDataLen = (cReadPacket.Size() + 7) / 8;
+	int nDataLen = ((cReadPacket.Size() + 3) / 4) * 4;
 	uint8 *aSendBuffer = (uint8 *)alloca(nDataLen);
 //	cReadPacket.ReadData(aSendBuffer, nDataLen * 8);
 	cReadPacket.ReadDataRaw( aSendBuffer, nDataLen );
