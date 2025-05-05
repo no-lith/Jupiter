@@ -542,7 +542,12 @@ void ModelMgr::CheckModelObbs(LTVector &vPos, LTRotation &rRot, char *pHitText)
                     // Translate our OBB position
                     LTMatrix obb_mat;
                     obb_mat.Identity();
-                    obb_mat.SetBasisVectors( &tr.m_Rot.Right(), &tr.m_Rot.Up(), &tr.m_Rot.Forward() );
+					const LTVector
+						vRight = tr.m_Rot.Right(),
+						vUp = tr.m_Rot.Up(),
+						vForward = tr.m_Rot.Forward();
+
+                    obb_mat.SetBasisVectors( &vRight, &vUp, &vForward );
                     obb_mat.SetTranslation( tr.m_Pos );
 					obb_mat.Apply(pObbs[iObb].m_Pos);
 
@@ -550,7 +555,8 @@ void ModelMgr::CheckModelObbs(LTVector &vPos, LTRotation &rRot, char *pHitText)
 					g_pLTClient->SetObjectPos(m_hSphere, &pObbs[iObb].m_Pos);
                     LTVector vScale(radius, radius, radius);
                     g_pLTClient->SetObjectScale(m_hSphere, &vScale);
-                    g_pLTCPhysics->SetObjectDims(m_hSphere, &LTVector(0.0f, 0.0f, 0.0f), 0);
+					LTVector vDims(0.0f, 0.0f, 0.0f);
+                    g_pLTCPhysics->SetObjectDims(m_hSphere, &vDims, 0);
 
                     // Setup OBB rot
                     LTMatrix mObbMat;
@@ -574,7 +580,7 @@ void ModelMgr::CheckModelObbs(LTVector &vPos, LTRotation &rRot, char *pHitText)
 					// Set the scale of our debugging square
                     LTVector vScale2(pObbs[iObb].m_Size.x , pObbs[iObb].m_Size.y, pObbs[iObb].m_Size.z);
                     g_pLTClient->SetObjectScale(m_hSquare, &vScale2);
-                    g_pLTCPhysics->SetObjectDims(m_hSquare, &LTVector(0.0f, 0.0f, 0.0f), 0);
+                    g_pLTCPhysics->SetObjectDims(m_hSquare, &vDims, 0);
 
 					// Set our recently stored "hit" information. (including point of intersection etc...)
                     strcpy(pHitText, buf);
