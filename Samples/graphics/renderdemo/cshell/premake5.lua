@@ -27,5 +27,16 @@ project "CShell"
 		"src",
 		local_shrdir .. "/src",
 		
-		sdkdir
+		sdkdir,
+		vendir .. "/directx-8.1/include"
+	}
+
+	libdirs
+	{
+		vendir .. "/directx-8.1/lib"
+	}
+
+	links
+	{
+		"d3d8"
 	}
