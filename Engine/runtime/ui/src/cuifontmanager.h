@@ -93,7 +93,7 @@ class CUIFontManager : public ILTFontManager
 											     float y);
 
 		virtual CUIFormattedPolyString*	CreateFormattedPolyString(CUIFont* pFont, 
-											     char* pBuf,
+											     const char* pBuf,
 											     float x,
 											     float y,
 												 CUI_ALIGNMENTTYPE alignment);

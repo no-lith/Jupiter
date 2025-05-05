@@ -345,7 +345,7 @@ CUIPolyString* CUIFontManager::CreatePolyString(CUIFont* font,
 
 //	--------------------------------------------------------------------------
 CUIFormattedPolyString*	CUIFontManager::CreateFormattedPolyString(CUIFont* font, 
-											     char* buf,
+											     const char* buf,
 											     float x,
 											     float y,
 												 CUI_ALIGNMENTTYPE alignment)
