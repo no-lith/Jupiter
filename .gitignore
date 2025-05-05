@@ -497,3 +497,6 @@ dkms.conf
 *.vcxproj*
 *.recipe
 *.res
+
+# Config
+*.cfg
